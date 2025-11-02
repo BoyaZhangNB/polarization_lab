@@ -1,0 +1,89 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx} % for including figures
+\usepackage{amsmath}  % for equations
+\usepackage{siunitx}  % for SI units
+\usepackage{caption}  % better captions
+
+\title{Physics Lab Report Title}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Light, as a transverse electromagnetic wave, exhibits polarization when the oscillations of its electric field vector are confined to a specific plane perpendicular to the direction of propagation. While most natural light sources emit unpolarized light with random oscillation directions, polarization can be induced through transmission via polarizing materials or reflection at dielectric interfaces. This laboratory experiment investigates these phenomena using a low-powered red diode laser and Polaroid sheets to explore the transmission properties of polarized light and the partial polarization achieved by reflection.
+The primary objectives are threefold. First, Malus' law is verified by measuring the intensity of light transmitted through two successive polarizers as a function of the angle $\theta$ between their transmission axes, confirming the relationship $I(\theta) = I_0 \cos^2 \theta$. Second, the system is extended to three polarizers, with the first and third oriented at 90° to each other, to derive and test the intensity expression $I_3 = \frac{I_1}{4} \sin^2(2\phi)$, where $\phi$ is the angle of the intermediate polarizer relative to the first. Finally, polarization by reflection is examined at an air-acrylic interface to determine Brewster's angle $\theta_p$, at which the reflected light is fully polarized perpendicular to the plane of incidence, enabling calculation of the refractive index of acrylic via $\tan \theta_p = n_2 / n_1$.
+These exercises elucidate fundamental principles of wave optics, including the vector resolution of electric fields, intensity dependence on field amplitude, and the Fresnel equations governing reflectance for parallel ($R_\parallel$) and perpendicular ($R_\perp$) polarizations. The results provide empirical validation of classical polarization theory and practical insight into applications such as glare reduction in polarized sunglasses.
+
+\section{Methodology}
+Describe experimental setup, equipment, and detailed procedure.
+Be specific enough that someone else could replicate the experiment.
+
+\section{Data and Analysis}
+\subsection{Malus' Law}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../polabMalus1_cos.png}
+    \caption{Intensity versus $\cos(\theta)$ graph. The uncertainty of the intensity and angle are invisible because the light sensor is accurate to a hundredth of a volt. The graph is roughly quadratic.}
+    \label{fig:example}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../polabMalus1_cos2.png}
+    \caption{The light intensity is linear with $\cos^2 \theta$, with a slope of -----, and mean squared error -----. Notably, the cluster of outliers at the top-left section are due to human operation error using an unstable rotary platform.}
+    \label{fig:example}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../polabMalus2_cos.png}
+    \caption{Intensity versus $\cos \theta$ graph for the three polarizers. The quartic curve has peaks at $\theta = 0^{\circ}$, $90^{\circ}$, and $180^{\circ}$. Notably, the angle $ \theta $ is offset by $45^{\circ}$ from the real polarizer direction.}
+    \label{fig:example}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../polabMalus2_cos2.png}
+    \caption{The intensity has a quadratic relationship with $\cos^2 \theta $, namely $I_3 = \frac{I_1}{2}(1-\cos^2 \theta)(\cos^2 \theta)$, which can be derived from Eq.5 in the lab manual using trigonometric identities.}
+    \label{fig:example}
+\end{figure}
+
+\subsection{Brewster's Angle}
+The raw data obtained is very noisy due to the operation errors involved in rotating the apparatus disks concurrently. The light sensor is easily moved out of the way of the reflected light, causing sudden dips in intensity.
+
+Data uncertainty is measured and reduced by combining a neighborhood of angles into bins of length $2^\circ$. The mean of the bin is plotted and areas one standard deviation from the mean is colored. A sinusoidal curve is fitted to the data and the residuals are plotted.
+
+Moreover, the sensor angle is offset by $70^\circ$ from the incidence normal because the measurement softeware always begins recording at $\theta = 180^\circ$ but actual data collection begin at an angle from the incidence normal to not block the incident laser.
+
+Notably, the error of both experiments grew larger with intensity. This could be attributed to error visibility, that when the actual intensity is near zero, an empty reading would not appear significant, but at high intensity, a dip in data differs greatly from the actual intensity.
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../polabbrewster2.png}
+    \caption{hiii}
+    \label{fig:example}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../polabbrewster3.png}
+    \caption{hiii}
+    \label{fig:example}
+\end{figure}
+
+\section{Discussion}
+Interpret your results, compare with theory, discuss errors and limitations.
+
+\section{Conclusion}
+Summarize findings, significance, and possible improvements for future work.
+
+\section*{References}
+Use any citation style required (APA, MLA, etc.).
+
+\end{document}

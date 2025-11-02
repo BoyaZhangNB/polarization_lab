@@ -14,16 +14,14 @@ def load_malus_dataset(path: Path) -> Tuple[str, np.ndarray]:
     return label, data
 
 
-def plot_experiment(data: np.ndarray, label: str, output_path: Path) -> None:
-    """Create a single angle-versus-intensity plot and persist it to disk."""
-    angles_deg = np.degrees(data[:, 0])
-    intensities = data[:, 1]
-
+def plot_series(x: np.ndarray, y: np.ndarray, xlabel: str, title: str, output_path: Path) -> None:
+    """Render and persist a single Malus-law diagnostic plot."""
     fig, ax = plt.subplots(figsize=(8, 5))
-    ax.plot(angles_deg, intensities, marker="o", markersize=3, linewidth=1.2)
-    ax.set_xlabel("Polarizer Angle (degrees)")
+    # scatter avoids connecting lines so the trend is visible without implying interpolation
+    ax.scatter(x, y, s=18, marker="o")
+    ax.set_xlabel(xlabel)
     ax.set_ylabel("Light Intensity (volts)")
-    ax.set_title(f"Malus Law Experiment {label}")
+    ax.set_title(title)
     ax.grid(True, linestyle="--", alpha=0.4)
 
     fig.tight_layout()
@@ -38,11 +36,47 @@ def main() -> None:
         base_dir / "polabMalus2.txt",
     ]
 
-    for data_file in data_files:
+    for i, data_file in enumerate(data_files):
         label, data = load_malus_dataset(data_file)
-        output_name = data_file.with_suffix(".png")
-        plot_experiment(data, label, output_name)
-        print(f"Saved plot for {data_file.name} → {output_name.name}")
+        angles_rad = data[:, 0]
+        intensities = data[:, 1]
+
+        angles_deg = np.degrees(angles_rad+0.42 if i ==0 else angles_rad-0.2) # normalize by 0.35 rad
+        cos_theta = np.cos(angles_rad+0.42 if i ==0 else angles_rad-0.2) # s.t. highest intensity starts at 0
+        cos_sq_theta = cos_theta ** 2
+
+        base_stem = data_file.stem
+
+        angle_path = data_file.with_name(f"{base_stem}_angle.png")
+        cos_path = data_file.with_name(f"{base_stem}_cos.png")
+        cos_sq_path = data_file.with_name(f"{base_stem}_cos2.png")
+
+        plot_series(
+            angles_deg,
+            intensities,
+            "Polarizer Angle (degrees)",
+            f"Malus Law Experiment {label} — Intensity vs Angle",
+            angle_path,
+        )
+        plot_series(
+            cos_theta,
+            intensities,
+            "cos(θ)",
+            f"Malus Law Experiment {label} — Intensity vs cos(θ)",
+            cos_path,
+        )
+        plot_series(
+            cos_sq_theta,
+            intensities,
+            "cos²(θ)",
+            f"Malus Law Experiment {label} — Intensity vs cos²(θ)",
+            cos_sq_path,
+        )
+
+        print(
+            "Saved plots for "
+            f"{data_file.name} → {angle_path.name}, {cos_path.name}, {cos_sq_path.name}"
+        )
 
 
 if __name__ == "__main__":
