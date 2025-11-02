@@ -14,8 +14,8 @@ def load_brewster_dataset(path: Path) -> Tuple[str, np.ndarray]:
     return label, data
 
 
-def plot_brewster_experiment(data: np.ndarray, label: str, output_path: Path) -> None:
-    """Render Brewster-angle diagnostics with binning, uncertainties, fit, and residuals."""
+def plot_brewster_experiment(data: np.ndarray, label: str, output_path: Path) -> tuple[float, float, int]:
+    """Render Brewster-angle diagnostics and return MSE, chi^2, and bin count."""
     angles = data[:, 0]
     intensities = data[:, 1]
 
@@ -53,6 +53,13 @@ def plot_brewster_experiment(data: np.ndarray, label: str, output_path: Path) ->
     fitted = design @ coeffs
     residuals = bin_means_arr - fitted
 
+    mse = float(np.mean(residuals**2)) if residuals.size else float("nan")
+    nonzero_std_mask = bin_stds_arr > 0
+    if np.any(nonzero_std_mask):
+        chi2 = float(np.sum((residuals[nonzero_std_mask] / bin_stds_arr[nonzero_std_mask]) ** 2))
+    else:
+        chi2 = float("nan")
+
     fig, (ax_data, ax_resid) = plt.subplots(2, 1, figsize=(9, 7), sharex=True)
 
     ax_data.scatter(angles, intensities, color="0.6", s=12, alpha=0.45, label="Raw measurements")
@@ -81,9 +88,23 @@ def plot_brewster_experiment(data: np.ndarray, label: str, output_path: Path) ->
     ax_resid.grid(True, linestyle="--", alpha=0.4)
     ax_resid.legend(loc="best")
 
+    stats_lines = [f"MSE = {mse:.3g}" if np.isfinite(mse) else "MSE = n/a"]
+    stats_lines.append(f"chi^2 = {chi2:.3g}" if np.isfinite(chi2) else "chi^2 = n/a")
+    ax_resid.text(
+        0.02,
+        0.95,
+        "\n".join(stats_lines),
+        transform=ax_resid.transAxes,
+        fontsize=9,
+        verticalalignment="top",
+        bbox=dict(boxstyle="round,pad=0.25", facecolor="white", alpha=0.8, linewidth=0.0),
+    )
+
     fig.tight_layout()
     fig.savefig(output_path, dpi=300)
     plt.close(fig)
+
+    return mse, chi2, int(bin_means_arr.size)
 
 
 def main() -> None:
@@ -93,11 +114,15 @@ def main() -> None:
     for data_file in data_files:
         label, data = load_brewster_dataset(data_file)
         output_name = data_file.with_suffix(".png")
-        plot_brewster_experiment(data, label, output_name)
+        mse, chi2, bin_count = plot_brewster_experiment(data, label, output_name)
         print(
             f"Saved plot for {data_file.name} → {output_name.name} "
             f"(min at index {int(np.argmin(data[:, 1]))}, max at index {int(np.argmax(data[:, 1]))})"
         )
+        stats_msg = f"  Stats: bins={bin_count}"
+        stats_msg += f", MSE={mse:.5g}" if np.isfinite(mse) else ", MSE=n/a"
+        stats_msg += f", chi^2={chi2:.5g}" if np.isfinite(chi2) else ", chi^2=n/a"
+        print(stats_msg)
 
 
 if __name__ == "__main__":

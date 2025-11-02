@@ -24,43 +24,62 @@ Be specific enough that someone else could replicate the experiment.
 
 \section{Data and Analysis}
 \subsection{Malus' Law}
+Collected data exhibits consistency and low uncertainty. Notably, at the start of each experiment, the rotary sensor must be pressed against the polarizer to prevent slipping; this procedure causes the rotary sensor to move around without changing the angle of the polarizer. Such error caused clusters of data points at maximum intensity and around $\theta = 0$.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.6\textwidth]{../polabMalus1_cos.png}
-    \caption{Intensity versus $\cos(\theta)$ graph. The uncertainty of the intensity and angle are invisible because the light sensor is accurate to a hundredth of a volt. The graph is roughly quadratic.}
-    \label{fig:example}
+    \includegraphics[width=0.6\textwidth]{../polabMalus1_angle_fit.png}
+    \caption{Intensity versus $\theta$ graph for two polarizers.}
+    \label{fig:angleMalus1}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.6\textwidth]{../polabMalus1_cos2.png}
-    \caption{The light intensity is linear with $\cos^2 \theta$, with a slope of -----, and mean squared error -----. Notably, the cluster of outliers at the top-left section are due to human operation error using an unstable rotary platform.}
-    \label{fig:example}
+    \includegraphics[width=0.6\textwidth]{../polabMalus2_angle_fit.png}
+    \caption{Intensity versus $\theta$ graph for three polarizers.}
+    \label{fig:angleMalus2}
+\end{figure}
+
+Data uncertainty is measured and reduced by combining a neighborhood of angles into bins of length $1^\circ$. The mean of the bin is plotted and areas one standard deviation from the mean is shaded. The cosine of the angles for two polarizers is fitted with a quadratic relationship with the intensity, While for three, a quartic relationship. The mean squared error and reduced $\chi^2$ error for two polarizer are $0.04169$ and $240.3$, and for three polarizers, $0.002267$ and $89.67$, respectively.
+
+Although the reduced chi squared error is much greater than one, indicating a poor model, the mean squared errors are small, showing a good fit. This discrepancy can be attributed to the way standard deviation is calculated; because each bin contains few data points, it has small standard deviation. Since $\chi^2$ error is very sensitive to data points with small standard deviations, even a small deviation from the fitted curve would contribute a lot to the $\chi^2$ value.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../polabMalus1_cos_fit.png}
+    \caption{Intensity versus $\cos(\theta)$ graph for two polarizers. The uncertainty of the intensity and angle are invisible because the light sensor is accurate to a hundredth of a volt. The graph is roughly quadratic.}
+    \label{fig:cosMalus1}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.6\textwidth]{../polabMalus2_cos.png}
+    \includegraphics[width=0.6\textwidth]{../polabMalus1_cos2_fit.png}
+    \caption{The light intensity is linear with $\cos^2 \theta$, with a mean squared error of 0.039. The two parallel but shifted patterns demonstrates that the rotary sensor has drift error possibly due to slip.}
+    \label{fig:cos2Malus1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../polabMalus2_cos_fit.png}
     \caption{Intensity versus $\cos \theta$ graph for the three polarizers. The quartic curve has peaks at $\theta = 0^{\circ}$, $90^{\circ}$, and $180^{\circ}$. Notably, the angle $ \theta $ is offset by $45^{\circ}$ from the real polarizer direction.}
-    \label{fig:example}
+    \label{fig:cosMalus2}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.6\textwidth]{../polabMalus2_cos2.png}
+    \includegraphics[width=0.6\textwidth]{../polabMalus2_cos2_fit.png}
     \caption{The intensity has a quadratic relationship with $\cos^2 \theta $, namely $I_3 = \frac{I_1}{2}(1-\cos^2 \theta)(\cos^2 \theta)$, which can be derived from Eq.5 in the lab manual using trigonometric identities.}
-    \label{fig:example}
+    \label{fig:cos2Malus2}
 \end{figure}
 
 \subsection{Brewster's Angle}
 The raw data obtained is very noisy due to the operation errors involved in rotating the apparatus disks concurrently. The light sensor is easily moved out of the way of the reflected light, causing sudden dips in intensity.
 
-Data uncertainty is measured and reduced by combining a neighborhood of angles into bins of length $2^\circ$. The mean of the bin is plotted and areas one standard deviation from the mean is colored. A sinusoidal curve is fitted to the data and the residuals are plotted.
-
-Moreover, the sensor angle is offset by $70^\circ$ from the incidence normal because the measurement softeware always begins recording at $\theta = 180^\circ$ but actual data collection begin at an angle from the incidence normal to not block the incident laser.
+The sensor angle is offset by $70^\circ$ from the incidence normal because the measurement softeware always begins recording at $\theta = 180^\circ$ but actual data collection begin at an angle from the incidence normal to not block the incident laser.
 
 Notably, the error of both experiments grew larger with intensity. This could be attributed to error visibility, that when the actual intensity is near zero, an empty reading would not appear significant, but at high intensity, a dip in data differs greatly from the actual intensity.
+
+Due to equipment limitations, the range of intensity recorded by the light sensor is constrained. To capture the small changes when intensity is low, the sensor must be amplified, which, however, overshoots intensity measurements at high intensity, causing clusters of data points at $4.3 V$, the maximum reading of the light sensor, around small reflection angles.
 
 
 \begin{figure}[h!]
@@ -77,8 +96,10 @@ Notably, the error of both experiments grew larger with intensity. This could be
     \label{fig:example}
 \end{figure}
 
+%%Fit Mean Square error and Chi squared error for Brewster's Angle
+
 \section{Discussion}
-Interpret your results, compare with theory, discuss errors and limitations.
+
 
 \section{Conclusion}
 Summarize findings, significance, and possible improvements for future work.

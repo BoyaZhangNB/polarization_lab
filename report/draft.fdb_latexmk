@@ -1,12 +1,14 @@
 # Fdb version 4
-["pdflatex"] 1762050896.825 "/Users/zhangboya/Documents/University of Toronto/polarization_lab/report/draft.tex" "draft.pdf" "draft" 1762050899.07674 0
-  "../polabMalus1_cos.png" 1762048477.97522 134780 513734dfb6703e22f36b485ea9bbae00 ""
-  "../polabMalus1_cos2.png" 1762048478.08445 131816 07ae9eaf0ba74f343c59a89dac800c25 ""
-  "../polabMalus2_cos.png" 1762048478.31674 155706 f65880f43de4fbed603dbc0965f73275 ""
-  "../polabMalus2_cos2.png" 1762048478.42788 147837 6b1278b744757553b41c8a9e5b7cad1d ""
-  "../polabbrewster2.png" 1762025806.1571 464377 7cac18f7ab3b10a915d4797098faae49 ""
-  "../polabbrewster3.png" 1762025806.38658 619648 f32d3ce7bf179996a608dc8587f92bbf ""
-  "/Users/zhangboya/Documents/University of Toronto/polarization_lab/report/draft.tex" 1762050896.64001 5604 4808556a1743287069b2a988150dddd8 ""
+["pdflatex"] 1762107887.2105 "/Users/zhangboya/Documents/University of Toronto/polarization_lab/report/draft.tex" "draft.pdf" "draft" 1762107890.88236 0
+  "../polabMalus1_angle_fit.png" 1762107156.9095 341060 e10dbc042e5ff262f85994b8696597fd ""
+  "../polabMalus1_cos2_fit.png" 1762106381.54591 310624 b609b8d85eb9343c8be43962b4b42901 ""
+  "../polabMalus1_cos_fit.png" 1762106381.37634 300306 ed01a1eb68ab327ac5331edb29e54825 ""
+  "../polabMalus2_angle_fit.png" 1762107157.11692 477198 382b8ab32cc0fd825e532d3c8d9bb2d0 ""
+  "../polabMalus2_cos2_fit.png" 1762106382.04673 388535 851c20ba8c369778977d1adedbc392c6 ""
+  "../polabMalus2_cos_fit.png" 1762106381.86434 375355 2674fed1a1046b1ca6df4086d1bee5d4 ""
+  "../polabbrewster2.png" 1762091309.65725 472227 8a46a2efb537a55cb98523cf92b1d37e ""
+  "../polabbrewster3.png" 1762091309.86425 628448 aa2ea466f44e669e3d45e024dbb068a3 ""
+  "/Users/zhangboya/Documents/University of Toronto/polarization_lab/report/draft.tex" 1762107882.22233 7472 6e44c0513e6fda42e3b5c7328b9aad8a ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -69,8 +71,8 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1731108088.24622 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1731108028 8221423 393efc69ec792839944859dc73938335 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "draft.aux" 1762050899.03083 2538 f395d66a8001ee1fa63ee51377c600a4 "pdflatex"
-  "draft.tex" 1762050896.64001 5604 4808556a1743287069b2a988150dddd8 ""
+  "draft.aux" 1762107890.83502 2931 075284e56e58367eca7c8754a384c963 "pdflatex"
+  "draft.tex" 1762107882.22233 7472 6e44c0513e6fda42e3b5c7328b9aad8a ""
   (generated)
   "draft.aux"
   "draft.log"

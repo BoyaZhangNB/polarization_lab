@@ -1,4 +1,4 @@
-Polarization of Light 'theta' Data File Wed, Oct 22, 2025 5:21 PM
+With Three Polarizers
 Sensor Position (Radians)	Light Intensity (Volts)
 0.00000	0.46284
 0.00000	0.45898
