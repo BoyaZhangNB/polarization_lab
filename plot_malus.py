@@ -168,7 +168,7 @@ def fit_cos_polynomial_and_plot(
     ax_resid.scatter(mean_angles_deg, residuals, color="tab:orange", s=28)
     ax_resid.axhline(0.0, color="black", linewidth=1, linestyle="--")
     ax_resid.set_ylabel("Residuals")
-    ax_resid.set_xlabel("Corrected angle θ (degrees)")
+    ax_resid.set_xlabel("Angle θ (degrees)")
     ax_resid.grid(True, linestyle="--", alpha=0.4)
 
     fig.tight_layout()

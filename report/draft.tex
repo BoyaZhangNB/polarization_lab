@@ -24,7 +24,7 @@ Be specific enough that someone else could replicate the experiment.
 
 \section{Data and Analysis}
 \subsection{Malus' Law}
-Collected data exhibits consistency and low uncertainty. Notably, at the start of each experiment, the rotary sensor must be pressed against the polarizer to prevent slipping; this procedure causes the rotary sensor to move around without changing the angle of the polarizer. Such error caused clusters of data points at maximum intensity and around $\theta = 0$.
+Collected data exhibits low uncertainty and consistency with theory. Notably, at the start of each experiment, the rotary sensor must be pressed against the polarizer to prevent slipping; this procedure causes the rotary sensor to move around without changing the angle of the polarizer. Such error caused clusters of data points at maximum intensity and around $\theta = 0$.
 
 \begin{figure}[h!]
     \centering
@@ -58,6 +58,12 @@ Although the reduced chi squared error is much greater than one, indicating a po
     \label{fig:cos2Malus1}
 \end{figure}
 
+%Discussion section% %Discussion section% %Discussion section% 
+The frequency of the Intensity vs. Angle graph for 3 polarizers is twice as that for 2 polarizers, which can be explained mathematically using trigonometric identities that $\cos ^2x$ is proportional to $\cos 2x$, so a quartic sinusoidal data would have twice the frequency of a quadratic one. Moreover, the average intensity of the three polarizers (oscillating around $0.3V$) is much lower than that of two polarizers because the perpendicular arrangement of the polarizers at the ends will always filter some light regardless of the central polarizer's orientation. 
+
+%%How much do we need to justify and explain these phenomenons?
+The highest intensity of the three polarizers occurred at measured angles $0^\circ$, $90^\circ$, and $180^\circ$, but since we started measurement when the intensity is maximum, that is, when the actual angle is $45^\circ$ \cite{labmanual}, $\theta_{actual} = \theta_{measured} + 45^\circ$, resulting in intensity peaks at angles $45^\circ$, $135^\circ$, and $225^\circ$. By the same conversion, the intensity is at a minimum when the actual angle is $0^\circ$ or $90^\circ$, when the middle polarizer aligns with one of the polarizers at the ends, blocking the incident light completely. 
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.6\textwidth]{../polabMalus2_cos_fit.png}
@@ -75,7 +81,7 @@ Although the reduced chi squared error is much greater than one, indicating a po
 \subsection{Brewster's Angle}
 The raw data obtained is very noisy due to the operation errors involved in rotating the apparatus disks concurrently. The light sensor is easily moved out of the way of the reflected light, causing sudden dips in intensity.
 
-The sensor angle is offset by $70^\circ$ from the incidence normal because the measurement softeware always begins recording at $\theta = 180^\circ$ but actual data collection begin at an angle from the incidence normal to not block the incident laser.
+The sensor angle is offset by $70^\circ$ from the actual angle, $\theta _{actual} = \theta _{measured} - 70^\circ$ because the measurement softeware always begins recording at $\theta = 180^\circ$ but actual data collection begin at an angle from the incidence normal to not block the incident laser.
 
 Notably, the error of both experiments grew larger with intensity. This could be attributed to error visibility, that when the actual intensity is near zero, an empty reading would not appear significant, but at high intensity, a dip in data differs greatly from the actual intensity.
 
@@ -85,21 +91,50 @@ Due to equipment limitations, the range of intensity recorded by the light senso
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.6\textwidth]{../polabbrewster2.png}
-    \caption{hiii}
-    \label{fig:example}
+    \caption{Intensity versus angle plot for Brewster's angle. The minimum intensity occurred at around $ 135^\circ $.}
+    \label{fig:horizontalbrewsters}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.6\textwidth]{../polabbrewster3.png}
-    \caption{hiii}
-    \label{fig:example}
+    \caption{The vertically places square polarizer displayed no significant intensity drop at any angle. }
+    \label{fig:verticalbrewsters}
 \end{figure}
 
+%%ANALYSIS%%
+The horizontally polarized square filter dimmed the laser significantly at a measured angle of $135^\circ$, which is normalized to $135^\circ - 70^\circ = 65^\circ$ actual angle. The angle between the incident and the normal follows to be $180^\circ - 65^\circ = 115^\circ$, then divided by two to get the Brewsters angle equaling to $57.5^\circ$ \cite{labmanual}.
+
+% TODO - CORRECT THE VALUE OF N2, ASK IF EXACT ANSWER PERFERRED. NEED TO PROPAGATE UNCERTAINTY???
+$$
+n_{2}= n_1 \cdot {\tan\theta_{p}} = 1 \cdot \tan 57.5^\circ = 1.569
+$$
+
+Choosing an arbitrary incident angle, $30^\circ$, so $\sin\left(30^\circ\right)= \frac{1}{2}$ and $\cos(30^\circ) = 0.866$, $\sin\theta_{2}= \frac{n_1}{n_{2}}\cdot \sin(\theta_{1})= \frac{1}{1.732\cdot2} = 0.2886$, meaning that $\theta_{2}= 16.779^\circ$ and $\cos\theta_{2}= 0.9574$.
+Using the formulae given,
+\begin{equation}
+r_{\perp} = \frac{\cos\theta_1 - n_2 \cos\theta_2}{\cos\theta_1 + n_2 \cos\theta_{2}}
+\end{equation}
+\begin{equation}
+r_{\parallel} = \frac{\cos\theta _2 - n_2 \cos\theta _1}{\cos \theta _2 + n_2 \cos \theta _1}
+\end{equation}
+
+$r_{\perp} \approx -0.314$ and $r_{\perp}^{2}= 0.09859$ 
+$r_{\parallel} \approx -0.221$ and $r_{\parallel}^{2}= 0.04884$
+
+
+%Discussion section%%Discussion section%%Discussion section%
+%%Would Brewster’s angle be more or less for light in air reflecting off water?%%
+The refractive index of water is around 1.3, which is lower than the acrylic index of 1.7, meaning that $\tan\theta_{\text{water}} < \tan\theta_{\text{acrylic}}$, since tangent is an increasing function, the Brewster's angle of water is less than the Brewster's angle of acrylic.
+
+%%How would data look like for an arrangement with vertical square polarizer?%%
+The vertical polarizer would not have a dipping angle as the horizontal polarizer would; its intensity would vary smoothly with the incident angle, decreasing as the incident angle decreases. This is because the reflected ray always have a component perpendicular to the plane of reflection, which aligns with the vertical polarizer.
+
+%%How do polarized sunglasses reduce glare? Which direction is the axis of polarization in a pair of polarized sunglasses? How could you check this?%%
+Glare comes from the sunlight's reflection off of flat surfaces. These flat surfaces partially or entirely polarizes light in the direction perpendicular to the plane of incidence. A polarized sunglasses can then block or dim the polarized light to reduce glare. Most sunglass are designed to be polarized vertically. This design choice is because any surfaces flat in front of us have a vertical incidence plane, meaning that the reflected glare would be polarized horizontally, which can be most effectively blocked by a vertically polarized lens. One way to check this is to use a polarizer whose polarizing direction is known; then put the sunglasses after it. Rotate the sunglasses until the amount of light the pass through is maximum. When this happens, the rotated sunglasses are polarized in the same direction as the polarizer in front.
+
+
 %%Fit Mean Square error and Chi squared error for Brewster's Angle
-
-\section{Discussion}
-
 
 \section{Conclusion}
 Summarize findings, significance, and possible improvements for future work.

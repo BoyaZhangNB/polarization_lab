@@ -124,6 +124,7 @@ INPUT ../polabMalus1_cos2_fit.png
 INPUT ../polabMalus1_cos2_fit.png
 INPUT ../polabMalus1_cos2_fit.png
 INPUT ../polabMalus1_cos2_fit.png
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT ../polabMalus2_cos_fit.png
 INPUT ../polabMalus2_cos_fit.png
 INPUT ../polabMalus2_cos_fit.png
