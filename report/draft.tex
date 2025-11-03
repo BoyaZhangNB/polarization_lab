@@ -1,13 +1,16 @@
 \documentclass[12pt,a4paper]{article}
 
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
 \usepackage{graphicx} % for including figures
 \usepackage{amsmath}  % for equations
 \usepackage{siunitx}  % for SI units
 \usepackage{caption}  % better captions
+\usepackage{booktabs} % for professional tables (though not used, good to have)
+\usepackage[hidelinks]{hyperref} % for internal links (e.g., to figures)
 
-\title{Physics Lab Report Title}
+\title{Physics Lab Report: Polarization of Light}
 \author{Your Name}
-\date{\today}
+\date{November 3, 2025}
 
 \begin{document}
 
@@ -15,7 +18,7 @@
 
 \section{Introduction}
 Light, as a transverse electromagnetic wave, exhibits polarization when the oscillations of its electric field vector are confined to a specific plane perpendicular to the direction of propagation. While most natural light sources emit unpolarized light with random oscillation directions, polarization can be induced through transmission via polarizing materials or reflection at dielectric interfaces. This laboratory experiment investigates these phenomena using a low-powered red diode laser and Polaroid sheets to explore the transmission properties of polarized light and the partial polarization achieved by reflection.
-The primary objectives are threefold. First, Malus' law is verified by measuring the intensity of light transmitted through two successive polarizers as a function of the angle $\theta$ between their transmission axes, confirming the relationship $I(\theta) = I_0 \cos^2 \theta$. Second, the system is extended to three polarizers, with the first and third oriented at 90° to each other, to derive and test the intensity expression $I_3 = \frac{I_1}{4} \sin^2(2\phi)$, where $\phi$ is the angle of the intermediate polarizer relative to the first. Finally, polarization by reflection is examined at an air-acrylic interface to determine Brewster's angle $\theta_p$, at which the reflected light is fully polarized perpendicular to the plane of incidence, enabling calculation of the refractive index of acrylic via $\tan \theta_p = n_2 / n_1$.
+The primary objectives are threefold. First, Malus' law is verified by measuring the intensity of light transmitted through two successive polarizers as a function of the angle $\theta$ between their transmission axes, confirming the relationship $I(\theta) = I_0 \cos^2 \theta$. Second, the system is extended to three polarizers, with the first and third oriented at \SI{90}{\degree} to each other, to derive and test the intensity expression $I_3 = \frac{I_1}{4} \sin^2(2\phi)$, where $\phi$ is the angle of the intermediate polarizer relative to the first. Finally, polarization by reflection is examined at an air-acrylic interface to determine Brewster's angle $\theta_p$, at which the reflected light is fully polarized perpendicular to the plane of incidence, enabling calculation of the refractive index of acrylic via $\tan \theta_p = n_2 / n_1$.
 These exercises elucidate fundamental principles of wave optics, including the vector resolution of electric fields, intensity dependence on field amplitude, and the Fresnel equations governing reflectance for parallel ($R_\parallel$) and perpendicular ($R_\perp$) polarizations. The results provide empirical validation of classical polarization theory and practical insight into applications such as glare reduction in polarized sunglasses.
 
 \section{Methodology}
@@ -28,145 +31,207 @@ The core apparatus for the Malus' Law exercises comprised the diode laser, two o
 \subsection{Exercise 1: Malus' Law with Two Polarizers}
 \begin{enumerate}
     \item \textbf{Initial Alignment:} The first polarizer (polarizer) and the second polarizer (analyzer, attached to the RMS) were placed on the track. The room lights were dimmed.
-    \item \textbf{Polarizer Axis Alignment:} The second polarizer was temporarily removed. The first polarizer was rotated until the light intensity recorded by the sensor was maximized, aligning its transmission axis with the intrinsic polarization axis of the laser light. The intensity was adjusted via the sensor gain to be between $3.5-4.0\text{ V}$ to avoid saturation.
-    \item \textbf{Analyzer Alignment:} The second polarizer (analyzer) and RMS assembly was returned to the track and rotated to achieve maximum light intensity, ensuring the analyzer's transmission axis was parallel to the first polarizer's axis. This angle was defined as the starting point, $\theta = 0^{\circ}$, by the software.
-    \item \textbf{Data Acquisition:} The RMS was used to rotate the analyzer through $180^{\circ}$ while constantly monitoring the light intensity. The continuous rotation ensured a smooth collection of data pairs $(I, \theta)$ over the full range, verifying Malus' Law, $I(\theta)=I_{0}\cos^{2}\theta$.
+    \item \textbf{Polarizer Axis Alignment:} The second polarizer was temporarily removed. The first polarizer was rotated until the light intensity recorded by the sensor was maximized, aligning its transmission axis with the intrinsic polarization axis of the laser light. The intensity was adjusted via the sensor gain to be between \SIrange{3.5}{4.0}{\volt} to avoid saturation.
+    \item \textbf{Analyzer Alignment:} The second polarizer (analyzer) and RMS assembly was returned to the track and rotated to achieve maximum light intensity, ensuring the analyzer's transmission axis was parallel to the first polarizer's axis. This angle was defined as the starting point, $\theta = \SI{0}{\degree}$, by the software.
+    \item \textbf{Data Acquisition:} The RMS was used to rotate the analyzer through \SI{180}{\degree} while constantly monitoring the light intensity. The continuous rotation ensured a smooth collection of data pairs $(I, \theta)$ over the full range, verifying Malus' Law, $I(\theta)=I_{0}\cos^{2}\theta$.
 \end{enumerate}
 
 \subsection{Exercise 2: Malus' Law with Three Polarizers}
 \begin{enumerate}
-    \item \textbf{Setup:} Three polarizers were placed on the optics track. Polarizer \#1 was aligned for maximum transmission from the laser. Polarizer \#3 was then rotated $90^{\circ}$ relative to Polarizer \#1 to achieve minimum light transmission ($I \approx 0$).
-    \item \textbf{Intermediate Polarizer Placement:} The RMS assembly was attached to Polarizer \#2, which was placed between Polarizers \#1 and \#3. Polarizer \#2 was rotated until the intensity $I_3$ was maximized, and this angular position was defined as the software's zero point ($\phi_{\text{measured}}=0^{\circ}$), corresponding to the theoretical angle $\phi = 45^{\circ}$ relative to Polarizer \#1.
-    \item \textbf{Data Acquisition:} Polarizer \#2 (the middle polarizer) was rotated through $360^{\circ}$ using the RMS while light intensity was recorded. This data was used to verify the relationship $I_{3}=\frac{I_{1}}{4}\sin^{2}(2\phi)$.
+    \item \textbf{Setup:} Three polarizers were placed on the optics track. Polarizer \#1 was aligned for maximum transmission from the laser. Polarizer \#3 was then rotated \SI{90}{\degree} relative to Polarizer \#1 to achieve minimum light transmission ($I \approx 0$).
+    \item \textbf{Intermediate Polarizer Placement:} The RMS assembly was attached to Polarizer \#2, which was placed between Polarizers \#1 and \#3. Polarizer \#2 was rotated until the intensity $I_3$ was maximized, and this angular position was defined as the software's zero point ($\phi_{\text{measured}}=\SI{0}{\degree}$), corresponding to the theoretical angle $\phi = \SI{45}{\degree}$ relative to Polarizer \#1.
+    \item \textbf{Data Acquisition:} Polarizer \#2 (the middle polarizer) was rotated through \SI{360}{\degree} using the RMS while light intensity was recorded. This data was used to verify the relationship $I_{3}=\frac{I_{1}}{4}\sin^{2}(2\phi)$.
 \end{enumerate}
 
 \subsection{Exercise 3: Polarization by Reflection and Brewster's Angle}
 \begin{enumerate}
-    \item \textbf{Initial Setup and Alignment:} The Brewster's angle setup (diode laser, D-lens on spectrophotometer disk, light sensor on rotating arm) was assembled. The laser beam was aligned to hit the center of the light sensor when the sensor arm was at $180^{\circ}$. An auxiliary polarizer was set to $45^{\circ}$ to ensure incident light had parallel ($I_{||}$) and perpendicular ($I_{\perp}$) components.
+    \item \textbf{Initial Setup and Alignment:} The Brewster's angle setup (diode laser, D-lens on spectrophotometer disk, light sensor on rotating arm) was assembled. The laser beam was aligned to hit the center of the light sensor when the sensor arm was at \SI{180}{\degree}. An auxiliary polarizer was set to \SI{45}{\degree} to ensure incident light had parallel ($I_{||}$) and perpendicular ($I_{\perp}$) components.
     \item \textbf{Unpolarized Measurement ($I_0$):} The square analyzing polarizer was removed. The spectrophotometer arm and D-lens were rotated concurrently to measure the reflected light intensity ($I_0$) versus the reflected angle over a wide range.
-    \item \textbf{Parallel Component Measurement ($I_{||}$):} The square analyzing polarizer was placed on the spectrophotometer arm with its transmission axis aligned \textbf{parallel} to the plane of incidence (vertical axis polarizer). The acquisition was repeated using the same concurrent rotation procedure. The angle corresponding to minimum intensity was recorded as the Brewster angle, $\theta_p$.
-    \item \textbf{Perpendicular Component Measurement ($I_{\perp}$):} The square analyzing polarizer was rotated $90^{\circ}$ to align its transmission axis \textbf{perpendicular} to the plane of incidence (horizontal axis polarizer). The acquisition was repeated for a third time.
+    \item \textbf{Parallel Component Measurement ($I_{||}$):} The square analyzing polarizer was placed on the spectrophotometer arm with its transmission axis aligned \textbf{parallel} to the plane of incidence (horizontal axis polarizer, as per manual). The acquisition was repeated using the same concurrent rotation procedure. The angle corresponding to minimum intensity was recorded as the Brewster angle, $\theta_p$.
+    \item \textbf{Perpendicular Component Measurement ($I_{\perp}$):} The square analyzing polarizer was rotated \SI{90}{\degree} to align its transmission axis \textbf{perpendicular} to the plane of incidence (vertical axis polarizer, as per manual). The acquisition was repeated for a third time.
     \item \textbf{Calculation:} The Brewster angle $\theta_p$ was determined from the minimum of the $I_{||}$ vs. angle plot and used to calculate the refractive index of the acrylic ($n_2$) via $\tan\theta_p=n_2/n_1$.
 \end{enumerate}
 
 \section{Data and Analysis}
+The light sensor's direct measurement uncertainty is $\SI{\pm 0.01}{\volt}$ (based on sensor precision). The rotary motion sensor's uncertainty is approximately $\SI{\pm 0.5}{\degree}$.
+
 \subsection{Malus' Law}
-Collected data exhibits low uncertainty and consistency with theory. Notably, at the start of each experiment, the rotary sensor must be pressed against the polarizer to prevent slipping; this procedure causes the rotary sensor to move around without changing the angle of the polarizer. Such error caused clusters of data points at maximum intensity and around $\theta = 0$.
+Collected data exhibits low uncertainty and consistency with theory. Notably, at the start of each experiment, the rotary sensor must be pressed against the polarizer to prevent slipping; this procedure causes the rotary sensor to move around without changing the angle of the polarizer. Such error caused clusters of data points at maximum intensity and around $\theta = \SI{0}{\degree}$.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.6\textwidth]{../polabMalus1_angle_fit.png}
     \caption{Intensity versus $\theta$ graph for two polarizers.}
-    \label{fig:angleMalus1}
+    \label{fig:fig1}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.6\textwidth]{../polabMalus2_angle_fit.png}
+        \includegraphics[width=0.6\textwidth]{../polabMalus2_angle_fit.png}
     \caption{Intensity versus $\theta$ graph for three polarizers.}
-    \label{fig:angleMalus2}
+    \label{fig:fig2}
 \end{figure}
 
-Data uncertainty is measured and reduced by combining a neighborhood of angles into bins of length $1^\circ$. The mean of the bin is plotted and areas one standard deviation from the mean is shaded. The cosine of the angles for two polarizers is fitted with a quadratic relationship with the intensity, While for three, a quartic relationship. The mean squared error and reduced $\chi^2$ error for two polarizer are $0.04169$ and $240.3$, and for three polarizers, $0.002267$ and $89.67$, respectively.
+Data uncertainty is measured and reduced by combining a neighborhood of angles into bins of length \SI{1}{\degree}. The mean of the bin is plotted and areas one standard deviation from the mean is shaded. The cosine of the angles for two polarizers is fitted with a quadratic relationship with the intensity, While for three, a quartic relationship. The mean squared error and reduced $\chi^2$ error for two polarizer are $0.04169$ and $240.3$, and for three polarizers, $0.002267$ and $89.67$, respectively.
 
 Although the reduced chi squared error is much greater than one, indicating a poor model, the mean squared errors are small, showing a good fit. This discrepancy can be attributed to the way standard deviation is calculated; because each bin contains few data points, it has small standard deviation. Since $\chi^2$ error is very sensitive to data points with small standard deviations, even a small deviation from the fitted curve would contribute a lot to the $\chi^2$ value.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.6\textwidth]{../polabMalus1_cos_fit.png}
-    \caption{Intensity versus $\cos(\theta)$ graph for two polarizers. The uncertainty of the intensity and angle are invisible because the light sensor is accurate to a hundredth of a volt. The graph is roughly quadratic.}
-    \label{fig:cosMalus1}
+    \caption{Intensity versus $\cos(\theta)$ graph for two polarizers. The uncertainty of the intensity and angle are invisible because the light sensor is accurate to a hundredth of a volt.}
+    \label{fig:fig3}
 \end{figure}
+
+As seen in Figure \ref{fig:fig3}, the graph of intensity versus $\cos(\theta)$ is roughly quadratic.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.6\textwidth]{../polabMalus1_cos2_fit.png}
-    \caption{The light intensity is linear with $\cos^2 \theta$, with a mean squared error of 0.039. The two parallel but shifted patterns demonstrates that the rotary sensor has drift error possibly due to slip.}
-    \label{fig:cos2Malus1}
+    \caption{The light intensity is linear with $\cos^2 \theta$, with a mean squared error of 0.039.}
+    \label{fig:fig4}
 \end{figure}
 
-%Discussion section% %Discussion section% %Discussion section% 
-The frequency of the Intensity vs. Angle graph for 3 polarizers is twice as that for 2 polarizers, which can be explained mathematically using trigonometric identities that $\cos ^2x$ is proportional to $\cos 2x$, so a quartic sinusoidal data would have twice the frequency of a quadratic one. Moreover, the average intensity of the three polarizers (oscillating around $0.3V$) is much lower than that of two polarizers because the perpendicular arrangement of the polarizers at the ends will always filter some light regardless of the central polarizer's orientation. 
+The two parallel but shifted patterns in Figure \ref{fig:fig4} demonstrate that the rotary sensor has drift error, possibly due to slip.
 
-%%How much do we need to justify and explain these phenomenons?
-The highest intensity of the three polarizers occurred at measured angles $0^\circ$, $90^\circ$, and $180^\circ$, but since we started measurement when the intensity is maximum, that is, when the actual angle is $45^\circ$ \cite{labmanual}, $\theta_{actual} = \theta_{measured} + 45^\circ$, resulting in intensity peaks at angles $45^\circ$, $135^\circ$, and $225^\circ$. By the same conversion, the intensity is at a minimum when the actual angle is $0^\circ$ or $90^\circ$, when the middle polarizer aligns with one of the polarizers at the ends, blocking the incident light completely. 
+The frequency of the Intensity vs. Angle graph for 3 polarizers (Figure \ref{fig:fig2}) is twice that for 2 polarizers (Figure \ref{fig:fig1}), which can be explained mathematically using trigonometric identities that $\cos^2 x$ is proportional to $\cos 2x$, so a quartic sinusoidal data would have twice the frequency of a quadratic one. Moreover, the average intensity of the three polarizers (oscillating around \SI{0.3}{\volt}) is much lower than that of two polarizers because the perpendicular arrangement of the polarizers at the ends will always filter some light regardless of the central polarizer's orientation. 
+
+The highest intensity of the three polarizers occurred at measured angles \SI{0}{\degree}, \SI{90}{\degree}, and \SI{180}{\degree}. Since the measurement started when the intensity was maximum, which corresponds to an actual angle of $\phi = \SI{45}{\degree}$ \cite{labmanual}, the relationship is $\phi_{\text{actual}} = \phi_{\text{measured}} + \SI{45}{\degree}$. This results in intensity peaks at actual angles of \SI{45}{\degree}, \SI{135}{\degree}, and \SI{225}{\degree}. By the same conversion, the intensity is at a minimum when the actual angle is \SI{0}{\degree} or \SI{90}{\degree}, which occurs when the middle polarizer aligns with one of the end polarizers, blocking the incident light completely. 
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.6\textwidth]{../polabMalus2_cos_fit.png}
-    \caption{Intensity versus $\cos \theta$ graph for the three polarizers. The quartic curve has peaks at $\theta = 0^{\circ}$, $90^{\circ}$, and $180^{\circ}$. Notably, the angle $ \theta $ is offset by $45^{\circ}$ from the real polarizer direction.}
-    \label{fig:cosMalus2}
+    \caption{Intensity versus $\cos \theta$ graph for the three polarizers.}
+    \label{fig:fig5}
 \end{figure}
+
+The quartic curve in Figure \ref{fig:fig5} has peaks at $\theta = \SI{0}{\degree}$, \SI{90}{\degree}, and \SI{180}{\degree}. Notably, the measured angle $\theta$ is offset by $\SI{45}{\degree}$ from the real polarizer direction $\phi$.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.6\textwidth]{../polabMalus2_cos2_fit.png}
-    \caption{The intensity has a quadratic relationship with $\cos^2 \theta $, namely $I_3 = \frac{I_1}{2}(1-\cos^2 \theta)(\cos^2 \theta)$, which can be derived from Eq.5 in the lab manual using trigonometric identities.}
-    \label{fig:cos2Malus2}
+    \caption{Intensity versus $\cos^2 \theta$ for three polarizers.}
+    \label{fig:fig6}
 \end{figure}
 
-\subsection{Brewster's Angle}
-The raw data obtained is very noisy due to the operation errors involved in rotating the apparatus disks concurrently. The light sensor is easily moved out of the way of the reflected light, causing sudden dips in intensity.
+As shown in Figure \ref{fig:fig6}, the intensity has a quadratic relationship with $\cos^2 \theta $, namely $I_3 = \frac{I_1}{2}(1-\cos^2 \theta)(\cos^2 \theta)$, which can be derived from Eq. 5 in the lab manual using trigonometric identities.
 
-The sensor angle is offset by $70^\circ$ from the actual angle, $\theta _{actual} = \theta _{measured} - 70^\circ$ because the measurement softeware always begins recording at $\theta = 180^\circ$ but actual data collection begin at an angle from the incidence normal to not block the incident laser.
+\subsection{Brewster's Angle}
+The raw data obtained is very noisy, as seen in Figure \ref{fig:fig7} and \ref{fig:fig8}, due to the operation errors involved in rotating the apparatus disks concurrently. The light sensor is easily moved out of the way of the reflected light, causing sudden dips in intensity.
 
 Notably, the error of both experiments grew larger with intensity. This could be attributed to error visibility, that when the actual intensity is near zero, an empty reading would not appear significant, but at high intensity, a dip in data differs greatly from the actual intensity.
 
-Due to equipment limitations, the range of intensity recorded by the light sensor is constrained. To capture the small changes when intensity is low, the sensor must be amplified, which, however, overshoots intensity measurements at high intensity, causing clusters of data points at $4.3 V$, the maximum reading of the light sensor, around small reflection angles.
-
+Due to equipment limitations, the range of intensity recorded by the light sensor is constrained. To capture the small changes when intensity is low, the sensor must be amplified, which, however, overshoots intensity measurements at high intensity, causing clusters of data points at \SI{4.3}{\volt} (the maximum reading of the light sensor) around small reflection angles.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.6\textwidth]{../polabbrewster2.png}
-    \caption{Intensity versus angle plot for Brewster's angle. The minimum intensity occurred at around $ 135^\circ $.}
-    \label{fig:horizontalbrewsters}
+    \caption{Intensity versus angle plot for $I_\parallel$ (horizontal polarizer). The minimum intensity occurred at a sensor angle of around \SI{135}{\degree}.}
+    \label{fig:fig7}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.6\textwidth]{../polabbrewster3.png}
-    \caption{The vertically places square polarizer displayed no significant intensity drop at any angle. }
-    \label{fig:verticalbrewsters}
+    \caption{Intensity versus angle plot for $I_\perp$ (vertical polarizer). This plot displayed no significant intensity drop at any angle.}
+    \label{fig:fig8}
 \end{figure}
 
-%%ANALYSIS%%
-The horizontally polarized square filter dimmed the laser significantly at a measured angle of $135^\circ$, which is normalized to $135^\circ - 70^\circ = 65^\circ$ actual angle. The angle between the incident and the normal follows to be $180^\circ - 65^\circ = 115^\circ$, then divided by two to get the Brewsters angle equaling to $57.5^\circ$ \cite{labmanual}.
+\subsubsection*{Brewster's Angle Calculation}
+The horizontally polarized square filter (analyzing the $I_{\parallel}$ component) dimmed the laser significantly, with a minimum intensity observed at a measured sensor angle of $\theta_{\mathrm{sensor}} \approx \SI{135}{\degree}$ (from Figure \ref{fig:fig7}).
 
-% TODO - CORRECT THE VALUE OF N2, ASK IF EXACT ANSWER PERFERRED. NEED TO PROPAGATE UNCERTAINTY???
+Based on the geometry of the apparatus, the measured sensor angle $\theta_{\mathrm{sensor}}$ is the total angle of deflection between the incident and reflected beam. The angle of incidence $\theta_p$ is defined relative to the normal, which bisects this total angle. Therefore, the relationship is:
 $$
-n_{2}= n_1 \cdot {\tan\theta_{p}} = 1 \cdot \tan 57.5^\circ = 1.569
+\theta_p = \frac{\theta_{\mathrm{sensor}}}{2} = \frac{\SI{135}{\degree}}{2} = \SI{67.5}{\degree}
 $$
+Using this experimentally determined Brewster's angle, the refractive index $n_2$ of the acrylic is calculated:
+$$
+n_{2}= n_1 \cdot {\tan\theta_{p}} = 1 \cdot \tan(\SI{67.5}{\degree}) \approx 2.414
+$$
+This calculated value of $n_2 \approx 2.414$ is significantly higher than the accepted literature value for acrylic (which is $n \approx 1.49$), corresponding to a large percent error. This discrepancy is almost certainly due to the large experimental errors noted for this part of the lab. As seen in Figure \ref{fig:fig7}, the raw data was extremely noisy, and the sensor was prone to saturation. This made precise identification of the intensity minimum very difficult and likely skewed the measured angle.
 
-Choosing an arbitrary incident angle, $30^\circ$, so $\sin\left(30^\circ\right)= \frac{1}{2}$ and $\cos(30^\circ) = 0.866$, $\sin\theta_{2}= \frac{n_1}{n_{2}}\cdot \sin(\theta_{1})= \frac{1}{1.732\cdot2} = 0.2886$, meaning that $\theta_{2}= 16.779^\circ$ and $\cos\theta_{2}= 0.9574$.
-Using the formulae given,
+\subsubsection*{Fresnel Reflectance Calculation}
+To calculate the theoretical reflectances, we use our experimentally determined $n_2 = 2.414$. Choosing an arbitrary incident angle $\theta_1 = \SI{30}{\degree}$:
+$\sin(\SI{30}{\degree})= 0.5$ and $\cos(\SI{30}{\degree}) \approx 0.866$.
+From Snell's Law, $\sin\theta_{2}= \frac{n_1}{n_{2}}\cdot \sin(\theta_{1})= \frac{1}{2.414}\cdot 0.5 \approx 0.2071$.
+This gives $\theta_{2}= \arcsin(0.2071) \approx \SI{11.95}{\degree}$ and $\cos\theta_{2} \approx 0.9783$.
+Using the Fresnel formulae given:
 \begin{equation}
 r_{\perp} = \frac{\cos\theta_1 - n_2 \cos\theta_2}{\cos\theta_1 + n_2 \cos\theta_{2}}
 \end{equation}
 \begin{equation}
 r_{\parallel} = \frac{\cos\theta _2 - n_2 \cos\theta _1}{\cos \theta _2 + n_2 \cos \theta _1}
 \end{equation}
+%
+$r_{\perp} = \frac{0.866 - (2.414)(0.9783)}{0.866 + (2.414)(0.9783)} \approx \frac{-1.495}{3.227} \approx -0.463 \quad \Rightarrow \quad R_{\perp} = r_{\perp}^2 \approx 0.214$
+%
+$r_{\parallel} = \frac{0.9783 - (2.414)(0.866)}{0.9783 + (2.414)(0.866)} \approx \frac{-1.112}{3.068} \approx -0.362 \quad \Rightarrow \quad R_{\parallel} = r_{\parallel}^2 \approx 0.131$
 
-$r_{\perp} \approx -0.314$ and $r_{\perp}^{2}= 0.09859$ 
-$r_{\parallel} \approx -0.221$ and $r_{\parallel}^{2}= 0.04884$
+\subsubsection*{Would Brewster’s angle be more or less for light in air reflecting off water?}
+The refractive index of water is around 1.3, which is lower than the accepted acrylic index of $\approx 1.49$, meaning that $\tan\theta_{\mathrm{water}} < \tan\theta_{\mathrm{acrylic}}$. Since tangent is an increasing function for acute angles, the Brewster's angle of water is less than the Brewster's angle of acrylic.
 
+\subsubsection*{How would data look like for an arrangement with vertical square polarizer?}
+The vertical polarizer (measuring $I_{\perp}$) would not have a dipping angle as the horizontal polarizer would; its intensity would vary smoothly with the incident angle. As seen in Figure \ref{fig:fig8} and predicted by the Fresnel equations, the $R_{\perp}$ component is never zero. This is because the reflected ray always has a component perpendicular to the plane of reflection, which aligns with the vertical polarizer.
 
-%Discussion section%%Discussion section%%Discussion section%
-%%Would Brewster’s angle be more or less for light in air reflecting off water?%%
-The refractive index of water is around 1.3, which is lower than the acrylic index of 1.7, meaning that $\tan\theta_{\text{water}} < \tan\theta_{\text{acrylic}}$, since tangent is an increasing function, the Brewster's angle of water is less than the Brewster's angle of acrylic.
+\subsubsection*{How do polarized sunglasses reduce glare? Which direction is the axis of polarization in a pair of polarized sunglasses? How could you check this?}
+Glare comes from the sunlight's reflection off of flat surfaces (like roads or water). These flat surfaces partially or entirely polarize light in the direction parallel to the surface (horizontal). A polarized sunglass lens acts as an analyzer, and its transmission axis is set vertically to block this horizontally-polarized glare. One way to check this is to use a polarizer whose polarizing direction is known; then put the sunglasses after it. Rotate the sunglasses until the amount of light that passes through is at a minimum (extinction). If this occurs when the polarizer is set to transmit horizontal light, the sunglasses must be polarized vertically.
 
-%%How would data look like for an arrangement with vertical square polarizer?%%
-The vertical polarizer would not have a dipping angle as the horizontal polarizer would; its intensity would vary smoothly with the incident angle, decreasing as the incident angle decreases. This is because the reflected ray always have a component perpendicular to the plane of reflection, which aligns with the vertical polarizer.
+\subsection{Propagation of Uncertainty} 
 
-%%How do polarized sunglasses reduce glare? Which direction is the axis of polarization in a pair of polarized sunglasses? How could you check this?%%
-Glare comes from the sunlight's reflection off of flat surfaces. These flat surfaces partially or entirely polarizes light in the direction perpendicular to the plane of incidence. A polarized sunglasses can then block or dim the polarized light to reduce glare. Most sunglass are designed to be polarized vertically. This design choice is because any surfaces flat in front of us have a vertical incidence plane, meaning that the reflected glare would be polarized horizontally, which can be most effectively blocked by a vertically polarized lens. One way to check this is to use a polarizer whose polarizing direction is known; then put the sunglasses after it. Rotate the sunglasses until the amount of light the pass through is maximum. When this happens, the rotated sunglasses are polarized in the same direction as the polarizer in front.
+To provide complete quantitative results, the uncertainties associated with the measured parameters must be propagated to the final calculated quantities: the refractive index of acrylic ($n_2$) and the Fresnel reflectances ($R_{||}$ and $R_{\perp}$).
 
+\subsubsection{Uncertainty in Brewster's Angle ($\delta\theta_{p}$) and Refractive Index ($\delta n_{2}$)}
 
-%%Fit Mean Square error and Chi squared error for Brewster's Angle
+The Brewster angle ($\theta_p$) is determined by identifying the angle of minimum parallel reflectance from Figure \ref{fig:fig7}. Its uncertainty is governed by the uncertainty in reading this minimum from the noisy data, which we can call $\delta\theta_{\mathrm{sensor,min}}$. Using the experimental relationship:
+$$\theta_{p} = \frac{\theta_{\mathrm{sensor}}}{2}$$
+The uncertainty $\delta\theta_p$ is found by propagating the uncertainty in the sensor reading:
+$$\delta\theta_{p} = \left|\frac{d \theta_{p}}{d \theta_{\mathrm{sensor}}}\right| \delta\theta_{\mathrm{sensor,min}} = \frac{1}{2}\delta\theta_{\mathrm{sensor,min}}$$
+
+From the noisy data in Figure \ref{fig:fig7}, a conservative visual estimate for the uncertainty of the minimum's location is $\delta\theta_{\mathrm{sensor,min}} \approx \SI{3.0}{\degree}$.
+$$\delta\theta_{p} = \frac{1}{2} (\SI{3.0}{\degree}) = \mathbf{\SI{1.5}{\degree}}$$
+
+The uncertainty in the refractive index, $n_2 = \tan\theta_{p}$, is calculated using the partial derivative with respect to $\theta_p$ (which must be in radians):
+$$\delta n_{2} = \left|\frac{d n_{2}}{d\theta_{p}}\right| \delta\theta_{p} = \left| \sec^2(\theta_{p}) \right| \delta\theta_{p}$$
+
+Substituting the measured value $\theta_{p} = \SI{67.5}{\degree}$ and the uncertainty $\delta\theta_p = \SI{1.5}{\degree} \times (\pi/180) \approx \SI{0.0262}{\radian}$:
+$$\delta n_{2} = \sec^2(\SI{67.5}{\degree}) \cdot (0.0262) \approx (2.613)^2 \cdot 0.0262 \approx 6.828 \cdot 0.0262 \approx \mathbf{0.179}$$
+
+Thus, the final determined refractive index is $n_2 = 2.41 \pm 0.18$.
+
+\subsubsection{Uncertainty in Fresnel Reflectance (${\delta R_{||}}$ and ${\delta R_{\perp}}$)}
+
+The reflectance $R$ is defined by $R = r^2$, where $r$ is the reflection coefficient. We approximate the uncertainty using the fractional uncertainty method based on the dominant calculated uncertainty, $\delta n_2$. The relative uncertainty in $n_2$ is:
+$$\frac{\delta n_{2}}{n_{2}} = \frac{0.179}{2.414} \approx 0.074 \approx \mathbf{7.4\%}$$
+
+Given the complex dependence of $R$ on $n_2$, we use this as a first-order approximation for the relative uncertainty in $R$.
+$$\frac{\delta R}{R} \approx \frac{\delta n_{2}}{n_{2}} \approx 7.4\%$$
+
+This percentage uncertainty is applied to the calculated reflectances ($R_{\perp} \approx 0.214$ and $R_{||} \approx 0.131$ at $\theta_1 = \SI{30}{\degree}$):
+\begin{itemize}
+    \item $\delta R_{\perp} = 0.074 \cdot 0.214 \approx \mathbf{0.016}$
+    \item $\delta R_{||} = 0.074 \cdot 0.131 \approx \mathbf{0.010}$
+\end{itemize}
+The final reported reflectances at a $\SI{30}{\degree}$ incident angle are $R_{\perp} = 0.214 \pm 0.016$ and $R_{||} = 0.131 \pm 0.010$.
 
 \section{Conclusion}
-Summarize findings, significance, and possible improvements for future work.
+This experiment successfully investigated the principles of light polarization. The first two exercises provided a clear verification of Malus's Law for both two- and three-polarizer systems. The collected data closely matched the theoretical models $I \propto \cos^2 \theta$ and $I \propto \sin^2(2\phi)$, respectively, with low mean squared errors, confirming the vector nature of light and the transmissive properties of polarizers.
 
-\section*{References}
-Use any citation style required (APA, MLA, etc.).
+The determination of Brewster's angle, however, resulted in a significant discrepancy. The experimentally determined refractive index for acrylic was $n_2 = 2.41 \pm 0.18$, which is inconsistent with the accepted literature value of $n \approx 1.49$. As noted in the analysis, this large error is attributed to the high-noise, low-quality data from the Brewster's angle apparatus. The difficulty in concurrently rotating the sensor arm and D-lens, combined with sensor saturation at high intensities, made a precise identification of the $I_\parallel$ minimum extremely difficult.
+
+Future work to improve this result should focus on mitigating these experimental errors. A more stable apparatus with a geared mechanism to link the rotation of the sensor arm and the D-lens would eliminate the primary source of operational error. Furthermore, using a light sensor with a wider dynamic range or implementing an auto-gaining feature would prevent saturation and allow for a more accurate measurement of the intensity minimum, leading to a more precise determination of Brewster's angle.
+
+\begin{thebibliography}{9}
+
+\bibitem{labmanual}
+University of Toronto, Dept. of Physics. (2023). \textit{Polarization of Light: Lab Manual}.
+
+\bibitem{halliday}
+Halliday, D., Resnick, R., \& Walker, J. (2005). \textit{Fundamentals of Physics} (7th ed.). Wiley. (Chapter 33).
+
+\bibitem{pasco}
+Hanks, A. PASCO EX9917A and EX9919 guide sheets.
+
+\end{thebibliography}
 
 \end{document}
+
