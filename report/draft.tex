@@ -19,8 +19,35 @@ The primary objectives are threefold. First, Malus' law is verified by measuring
 These exercises elucidate fundamental principles of wave optics, including the vector resolution of electric fields, intensity dependence on field amplitude, and the Fresnel equations governing reflectance for parallel ($R_\parallel$) and perpendicular ($R_\perp$) polarizations. The results provide empirical validation of classical polarization theory and practical insight into applications such as glare reduction in polarized sunglasses.
 
 \section{Methodology}
-Describe experimental setup, equipment, and detailed procedure.
-Be specific enough that someone else could replicate the experiment.
+
+The experiment was divided into three distinct exercises: verification of Malus' Law (two and three polarizers) and the determination of Brewster's angle. All measurements were conducted using a low-powered red diode laser as the light source and a light sensor coupled with a rotary motion sensor to measure intensity and angular position.
+
+\subsection{Apparatus}
+The core apparatus for the Malus' Law exercises comprised the diode laser, two or three Polaroid sheets (polarizers/analyzers) mounted on holders, and a light sensor/photodiode attached to a Rotary Motion Sensor (RMS) via a pulley and plastic belt. This system was assembled on a linear optics track (as shown in Figure 4 of the lab manual). For the Brewster's angle experiment, a separate setup was used, featuring the diode laser, an acrylic semi-circular lens (D-lens) mounted on a spectrophotometer disk, and a square analyzing polarizer on the spectrophotometer arm (as shown in Figure 6 and 7 of the lab manual). The angle of the reflected light was measured using a rotary motion sensor mounted on the spectrophotometer table.
+
+\subsection{Exercise 1: Malus' Law with Two Polarizers}
+\begin{enumerate}
+    \item \textbf{Initial Alignment:} The first polarizer (polarizer) and the second polarizer (analyzer, attached to the RMS) were placed on the track. The room lights were dimmed.
+    \item \textbf{Polarizer Axis Alignment:} The second polarizer was temporarily removed. The first polarizer was rotated until the light intensity recorded by the sensor was maximized, aligning its transmission axis with the intrinsic polarization axis of the laser light. The intensity was adjusted via the sensor gain to be between $3.5-4.0\text{ V}$ to avoid saturation.
+    \item \textbf{Analyzer Alignment:} The second polarizer (analyzer) and RMS assembly was returned to the track and rotated to achieve maximum light intensity, ensuring the analyzer's transmission axis was parallel to the first polarizer's axis. This angle was defined as the starting point, $\theta = 0^{\circ}$, by the software.
+    \item \textbf{Data Acquisition:} The RMS was used to rotate the analyzer through $180^{\circ}$ while constantly monitoring the light intensity. The continuous rotation ensured a smooth collection of data pairs $(I, \theta)$ over the full range, verifying Malus' Law, $I(\theta)=I_{0}\cos^{2}\theta$.
+\end{enumerate}
+
+\subsection{Exercise 2: Malus' Law with Three Polarizers}
+\begin{enumerate}
+    \item \textbf{Setup:} Three polarizers were placed on the optics track. Polarizer \#1 was aligned for maximum transmission from the laser. Polarizer \#3 was then rotated $90^{\circ}$ relative to Polarizer \#1 to achieve minimum light transmission ($I \approx 0$).
+    \item \textbf{Intermediate Polarizer Placement:} The RMS assembly was attached to Polarizer \#2, which was placed between Polarizers \#1 and \#3. Polarizer \#2 was rotated until the intensity $I_3$ was maximized, and this angular position was defined as the software's zero point ($\phi_{\text{measured}}=0^{\circ}$), corresponding to the theoretical angle $\phi = 45^{\circ}$ relative to Polarizer \#1.
+    \item \textbf{Data Acquisition:} Polarizer \#2 (the middle polarizer) was rotated through $360^{\circ}$ using the RMS while light intensity was recorded. This data was used to verify the relationship $I_{3}=\frac{I_{1}}{4}\sin^{2}(2\phi)$.
+\end{enumerate}
+
+\subsection{Exercise 3: Polarization by Reflection and Brewster's Angle}
+\begin{enumerate}
+    \item \textbf{Initial Setup and Alignment:} The Brewster's angle setup (diode laser, D-lens on spectrophotometer disk, light sensor on rotating arm) was assembled. The laser beam was aligned to hit the center of the light sensor when the sensor arm was at $180^{\circ}$. An auxiliary polarizer was set to $45^{\circ}$ to ensure incident light had parallel ($I_{||}$) and perpendicular ($I_{\perp}$) components.
+    \item \textbf{Unpolarized Measurement ($I_0$):} The square analyzing polarizer was removed. The spectrophotometer arm and D-lens were rotated concurrently to measure the reflected light intensity ($I_0$) versus the reflected angle over a wide range.
+    \item \textbf{Parallel Component Measurement ($I_{||}$):} The square analyzing polarizer was placed on the spectrophotometer arm with its transmission axis aligned \textbf{parallel} to the plane of incidence (vertical axis polarizer). The acquisition was repeated using the same concurrent rotation procedure. The angle corresponding to minimum intensity was recorded as the Brewster angle, $\theta_p$.
+    \item \textbf{Perpendicular Component Measurement ($I_{\perp}$):} The square analyzing polarizer was rotated $90^{\circ}$ to align its transmission axis \textbf{perpendicular} to the plane of incidence (horizontal axis polarizer). The acquisition was repeated for a third time.
+    \item \textbf{Calculation:} The Brewster angle $\theta_p$ was determined from the minimum of the $I_{||}$ vs. angle plot and used to calculate the refractive index of the acrylic ($n_2$) via $\tan\theta_p=n_2/n_1$.
+\end{enumerate}
 
 \section{Data and Analysis}
 \subsection{Malus' Law}
