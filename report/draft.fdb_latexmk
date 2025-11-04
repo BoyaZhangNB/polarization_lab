@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1762208549.13638 "/Users/akhilesh/Documents/GitHub/polarization_lab/report/draft.tex" "draft.pdf" "draft" 1762208552.2888 0
+["pdflatex"] 1762214973.9699 "/Users/akhilesh/Documents/GitHub/polarization_lab/report/draft.tex" "draft.pdf" "draft" 1762214976.92179 0
   "../polabMalus1_angle_fit.png" 1762117591.13431 338560 87edec9d5bec0046a3bd913bfff7009e ""
   "../polabMalus1_cos2_fit.png" 1762117591.13795 310624 b609b8d85eb9343c8be43962b4b42901 ""
   "../polabMalus1_cos_fit.png" 1762117591.14005 300306 ed01a1eb68ab327ac5331edb29e54825 ""
@@ -8,7 +8,7 @@
   "../polabMalus2_cos_fit.png" 1762117591.15006 375355 2674fed1a1046b1ca6df4086d1bee5d4 ""
   "../polabbrewster2.png" 1762117591.15783 472227 8a46a2efb537a55cb98523cf92b1d37e ""
   "../polabbrewster3.png" 1762117591.16454 628448 aa2ea466f44e669e3d45e024dbb068a3 ""
-  "/Users/akhilesh/Documents/GitHub/polarization_lab/report/draft.tex" 1762208545.72489 23710 7473ca0ae53607a48dcd8289014d0f2d ""
+  "/Users/akhilesh/Documents/GitHub/polarization_lab/report/draft.tex" 1762214973.82247 23727 005dc7ef6f18e7282ba2526e4c7f258c ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -102,9 +102,9 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1762118448 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "draft.aux" 1762208552.2389 4999 77611e91f737946acbf0cc26d943cb74 "pdflatex"
-  "draft.out" 1762208552.23956 2659 6d4b9befa523da1f14ce41bdf0d904d6 "pdflatex"
-  "draft.tex" 1762208545.72489 23710 7473ca0ae53607a48dcd8289014d0f2d ""
+  "draft.aux" 1762214976.86803 4999 77611e91f737946acbf0cc26d943cb74 "pdflatex"
+  "draft.out" 1762214976.86852 2659 6d4b9befa523da1f14ce41bdf0d904d6 "pdflatex"
+  "draft.tex" 1762214973.82247 23727 005dc7ef6f18e7282ba2526e4c7f258c ""
   (generated)
   "draft.aux"
   "draft.log"
