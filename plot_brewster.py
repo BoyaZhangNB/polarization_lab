@@ -111,8 +111,10 @@ def main() -> None:
     base_dir = Path(__file__).resolve().parent
     data_files = sorted(base_dir.glob("polabbrewster*.txt"))
 
-    for data_file in data_files:
+    for i, data_file in enumerate(data_files):
         label, data = load_brewster_dataset(data_file)
+        label = "Horizontal Polarizer" if i == 1 else "Vertical Polarizer" if i == 2 else "No Nolarizer"
+        label = label + " Intensity vs Angle"
         output_name = data_file.with_suffix(".png")
         mse, chi2, bin_count = plot_brewster_experiment(data, label, output_name)
         print(
